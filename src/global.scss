@@ -37,15 +37,6 @@
     --ion-safe-area-right: 0;
 }
 
-// --ion-color-orange: #f07d07;
-//   --ion-color-green: #7df0d3;
-//   --ion-color-purple: #6a36e8;
-//   --ion-color-gray-650: #161616;
-//   --ion-color-gray-750: #202020;
-//   --ion-color-gray-800: #090909;
-//   --ion-color-white: #fff;
-//   --ion-color-black: #040404;
-
 ion-content {
     width: calc(100% + 15px);
     overflow: hidden !important;
@@ -55,10 +46,12 @@ ion-content {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    font-family: 'Roboto', sans-serif;
 }
 
 .content {
-    width: 90%;
+    padding-left: 2.5rem;
+    width: 100%;
     max-width: 1152px;
     margin-left: auto;
     margin-right: auto;

@@ -3,4 +3,6 @@ export interface ICard {
     backgroundImage: string;
     title: string;
     hasTraining: boolean;
+    link: string;
+    linkType: 'Internal' | 'External';
 }

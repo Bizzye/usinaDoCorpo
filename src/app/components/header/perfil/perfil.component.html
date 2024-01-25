@@ -1,14 +1,18 @@
-<div class="container">
-    <div class="avatar">
-        <img src="assets/imgs/avatar.png" width="60" height="60" alt="Foto de perfil">
-    </div>
-
-    <div class="info">
-        <p class="name">
-            Leonardo Santos
-        </p>
-        <p class="status">
-            Nível Roxo
-        </p>
-    </div>
+<div class="container" (click)="_utils.openLink('/perfil')">
+    @if(user$ | async; as user) {
+        <div class="avatar">
+            <img [src]="user.avatar ? user.avatar : 'assets/imgs/perfil/avatar.png'" width="60" height="60" alt="Foto de perfil">
+        </div>
+    
+        <div class="info">
+            <p class="name">
+                {{ user.name }}
+            </p>
+            <p class="status" [style]="'color:'+ user.hex + ';'">
+                Nível {{ user.nivel }}
+            </p>
+        </div>
+    } @else {
+        <span>loading...</span>
+    }
 </div>

@@ -1,7 +1,7 @@
-import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
-import { ICard } from 'src/app/interfaces/card-item.interface';
+import { ICard } from 'src/app/interfaces/card/card-item.interface';
+import { UtilsService } from 'src/app/services/utils/utils.service';
 
 @Component({
   selector: 'app-card',
@@ -14,7 +14,9 @@ export class CardComponent  implements OnInit {
 
   @Input({required: true}) item!: ICard;
 
-  constructor() { }
+  constructor(
+    public _utils: UtilsService
+  ) { }
 
   ngOnInit() {}
 
