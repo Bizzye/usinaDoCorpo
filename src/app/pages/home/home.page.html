@@ -1,0 +1,98 @@
+<app-header></app-header>
+
+<ion-content [fullscreen]="true" id="main-content">
+  <div class="container">
+    <div class="content">
+      <h2 class="title"> 
+        PERSONAL ONLINE
+        <span class="plus">
+          <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" width="30" height="30" viewBox="0 0 512 512">
+            <path d="M448 256c0-106-86-192-192-192S64 150 64 256s86 192 192 192 192-86 192-192z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/>
+            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M256 176v160M336 256H176"/>
+          </svg>
+        </span>
+      </h2>
+
+      <swiper-container
+        space-between="15"
+        slides-per-view="1.4"
+        observer="true"
+        observer-slide-children="true"
+        
+      >
+
+        <swiper-slide>
+          <div class="slide newTraining">
+            <app-card [item]="newTraining"></app-card>
+
+            <div class="card_newTraining">
+              <span class="plus_newTraining">
+                <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
+                  <path d="M448 256c0-106-86-192-192-192S64 150 64 256s86 192 192 192 192-86 192-192z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/>
+                  <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M256 176v160M336 256H176"/>
+                </svg>
+              </span>
+
+              <h3 class="title_newTraining">NOVO <br> TREINO</h3>
+            </div>
+          </div>
+        </swiper-slide>
+
+        @for(item of cards; track $index) {
+          <swiper-slide>
+            <div class="slide">
+              <app-card [item]="item"></app-card>
+            </div>
+          </swiper-slide>
+        }
+      </swiper-container>
+    </div>
+
+    <div class="content">
+      <h2 class="title"> 
+        PROGRAMAS
+        <span class="new">
+          NOVO
+        </span>
+      </h2>
+
+      <swiper-container
+        space-between="15"
+        slides-per-view="1.4"
+        observer="true"
+        observer-slide-children="true"
+        
+      >
+        @for(item of cards; track $index) {
+          <swiper-slide>
+            <div class="slide">
+              <app-card [item]="item"></app-card>
+            </div>
+          </swiper-slide>
+        }
+      </swiper-container>
+    </div>
+
+    <div class="content">
+      <h2 class="title"> 
+        CONTEÚDOS
+      </h2>
+
+      <swiper-container
+        space-between="15"
+        slides-per-view="1.4"
+        observer="true"
+        observer-slide-children="true"
+        
+      >
+        @for(item of cards; track $index) {
+          <swiper-slide>
+            <div class="slide">
+              <app-card [item]="item"></app-card>
+            </div>
+          </swiper-slide>
+        }
+      </swiper-container>
+    </div>
+  </div>
+</ion-content>

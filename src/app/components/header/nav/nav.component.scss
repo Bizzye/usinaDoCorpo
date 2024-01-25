@@ -1,0 +1,36 @@
+nav {
+    display: flex;
+    align-items: center;
+
+    margin-left: auto;
+    margin-right: auto;
+    background-color: var(--ion-color-gray-650);
+
+    // padding: 0.25rem 0.5rem;
+    border-radius: 1rem;
+}
+
+a {
+    display: flex;
+    align-items: center;
+
+    color: var(--ion-color-orange);
+    margin: 0.25rem 0.25rem;
+
+    .icon-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 100%;
+        border: 1px solid var(--ion-color-orange);
+        height: 16px;
+        width: 16px;
+    }
+    
+    span {
+        font-size: 0.7rem;
+        margin-left: 0.25rem;
+        margin-top: 1px;
+    }
+}

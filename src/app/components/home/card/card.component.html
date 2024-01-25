@@ -1,0 +1,14 @@
+<div class="card">
+  <div class="image" [style.background-image]="'url(' + item.backgroundImage + ')'">
+  </div>
+  <div class="container">
+    @if(item.hasTraining) {
+      <p class="hasTraining">
+        continuar treinando
+      </p>
+    }
+    <h3 class="title">
+      {{ item.title }}
+    </h3>
+  </div>
+</div>
