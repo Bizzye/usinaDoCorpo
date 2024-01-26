@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { addIcons } from 'ionicons';
 
@@ -24,16 +24,16 @@ export class NotificationsComponent  implements OnInit {
     },
   ]
 
+  @ViewChild('notification_content') notifications_content!: ElementRef<HTMLDivElement>;
+
   constructor() {
     addIcons({ notifications });
    }
 
   ngOnInit() {}
 
-  toggleNotification() {
-    const wrapper = document.getElementById('notification_content');
-    
-    wrapper?.classList.toggle('hidden');
+  toggleNotification() { 
+    this.notifications_content.nativeElement.classList.toggle('hidden');
   }
 
 }

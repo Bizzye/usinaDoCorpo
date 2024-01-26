@@ -6,7 +6,7 @@
   <div class="circle">
   </div>
 
-  <div class="notification_content hidden" id="notification_content">
+  <div class="notification_content hidden" #notification_content>
     @for(item of notifications; track $index) {
       <app-item [item]="item" [index]="$index"></app-item>
     }
