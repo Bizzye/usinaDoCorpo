@@ -1,0 +1,5 @@
+[
+  { "id": "n-1", "title": "Seu treino de hoje já está disponível!", "read": false },
+  { "id": "n-2", "title": "Novo programa: Desafio 30 dias", "read": false },
+  { "id": "n-3", "title": "Você subiu para o nível Roxo", "read": true }
+]
