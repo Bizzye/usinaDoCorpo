@@ -1,0 +1,40 @@
+.toolbar {
+  background-color: var(--app-color-gray-800);
+  padding-top: var(--ion-safe-area-top, 0);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--app-color-gray-750);
+  border-bottom-right-radius: 2.5rem;
+  border-bottom-left-radius: 2.5rem;
+}
+
+.first-row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0.75rem;
+}
+
+.second-row {
+  width: 100%;
+}
+
+.third-row {
+  width: fit-content;
+  padding: 0 0.75rem 0.5rem;
+}
+
+.menu-button {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  color: var(--app-color-white);
+  font-size: 2rem;
+  cursor: pointer;
+}

@@ -1,0 +1,28 @@
+@if (user.hasValue()) {
+  @let currentUser = user.value();
+  <button type="button" class="profile" (click)="navigation.open(null)">
+    <img
+      class="avatar"
+      [src]="currentUser.avatarUrl || defaultAvatar"
+      width="60"
+      height="60"
+      [alt]="'Foto de perfil de ' + currentUser.name"
+    />
+    <span class="info">
+      <span class="name">{{ currentUser.name }}</span>
+      <span class="level" [style.color]="currentUser.levelColor">
+        Nível {{ currentUser.level }}
+      </span>
+    </span>
+  </button>
+} @else if (user.error()) {
+  <p class="profile feedback">Não foi possível carregar o perfil</p>
+} @else {
+  <div class="profile" aria-busy="true" aria-label="Carregando perfil">
+    <ion-skeleton-text class="avatar avatar-skeleton" [animated]="true" />
+    <span class="info">
+      <ion-skeleton-text class="text-skeleton" [animated]="true" />
+      <ion-skeleton-text class="text-skeleton short" [animated]="true" />
+    </span>
+  </div>
+}

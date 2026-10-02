@@ -1,0 +1,25 @@
+<ion-menu side="start" contentId="main-content" type="overlay">
+  <ion-header class="ion-no-border">
+    <ion-toolbar class="menu-toolbar">
+      <img
+        class="menu-logo"
+        src="assets/imgs/shared/usinaDoCorpo.png"
+        alt="Usina do Corpo"
+        height="36"
+      />
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="menu-content">
+    <ion-list lines="none" class="menu-list">
+      @for (item of items; track item.label) {
+        <ion-menu-toggle [autoHide]="false">
+          <ion-item button [detail]="false" class="menu-item" (click)="navigation.open(item.link)">
+            <ion-icon slot="start" [icon]="item.icon" aria-hidden="true" />
+            <ion-label>{{ item.label }}</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      }
+    </ion-list>
+  </ion-content>
+</ion-menu>

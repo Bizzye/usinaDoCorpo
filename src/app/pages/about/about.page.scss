@@ -1,0 +1,65 @@
+.toolbar {
+  --background: var(--app-color-gray-750);
+  --color: var(--app-color-white);
+}
+
+ion-back-button {
+  --color: var(--app-color-orange);
+}
+
+ion-content {
+  --background: var(--app-color-gray-800);
+  --color: var(--app-color-white);
+}
+
+.about {
+  max-width: 40rem;
+  margin: 0 auto;
+}
+
+.logo {
+  display: block;
+  margin: 1rem 0 1.5rem;
+}
+
+.description {
+  line-height: 1.6;
+  color: var(--app-color-gray-200);
+}
+
+.subtitle {
+  margin: 2rem 0 1rem;
+  font-size: 1.25rem;
+  color: var(--app-color-orange);
+}
+
+.stack {
+  list-style: none;
+
+  li {
+    display: flex;
+    flex-direction: column;
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 1rem;
+    background-color: var(--app-color-gray-750);
+  }
+
+  span {
+    font-size: 0.85rem;
+    color: var(--app-color-gray-200);
+  }
+}
+
+.repository {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 2rem;
+  background-color: var(--app-color-orange);
+  color: var(--app-color-black);
+  font-weight: 700;
+  text-decoration: none;
+}

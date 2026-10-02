@@ -1,0 +1,17 @@
+.item {
+  padding: 0.5rem 0.75rem;
+  color: var(--app-color-white);
+}
+
+.title {
+  font-size: 0.75rem;
+  line-height: 1.3;
+}
+
+.unread .title {
+  font-weight: 700;
+}
+
+.divider {
+  border-top: 1px solid var(--app-color-gray-650);
+}

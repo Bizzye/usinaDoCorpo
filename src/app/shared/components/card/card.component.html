@@ -1,0 +1,9 @@
+<button type="button" class="card" (click)="selected.emit(card())">
+  <img class="image" [src]="card().image" alt="" loading="lazy" decoding="async" />
+  <span class="content">
+    @if (card().inProgress) {
+      <span class="in-progress">continuar treinando</span>
+    }
+    <span class="title">{{ card().title }}</span>
+  </span>
+</button>
