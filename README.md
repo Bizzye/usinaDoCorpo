@@ -6,10 +6,10 @@
 
 **App mobile de treinos com personal online, programas e conteúdos — feito com Ionic, Angular e Capacitor.**
 
-[![CI](https://github.com/Bizzye/usinaDoCorpo/actions/workflows/ci.yml/badge.svg)](https://github.com/Bizzye/usinaDoCorpo/actions/workflows/ci.yml)
-[![Deploy](https://github.com/Bizzye/usinaDoCorpo/actions/workflows/deploy-web.yml/badge.svg)](https://github.com/Bizzye/usinaDoCorpo/actions/workflows/deploy-web.yml)
-[![Release](https://github.com/Bizzye/usinaDoCorpo/actions/workflows/release.yml/badge.svg)](https://github.com/Bizzye/usinaDoCorpo/releases/latest)
-[![CodeQL](https://github.com/Bizzye/usinaDoCorpo/actions/workflows/codeql.yml/badge.svg)](https://github.com/Bizzye/usinaDoCorpo/actions/workflows/codeql.yml)
+[![CI](https://img.shields.io/github/actions/workflow/status/Bizzye/usinaDoCorpo/ci.yml?branch=main&label=CI&logo=githubactions&logoColor=white)](https://github.com/Bizzye/usinaDoCorpo/actions/workflows/ci.yml)
+[![Deploy](https://img.shields.io/github/actions/workflow/status/Bizzye/usinaDoCorpo/deploy-web.yml?branch=main&label=deploy&logo=firebase&logoColor=white)](https://github.com/Bizzye/usinaDoCorpo/actions/workflows/deploy-web.yml)
+[![Release](https://img.shields.io/github/v/release/Bizzye/usinaDoCorpo?label=release&logo=android&logoColor=white)](https://github.com/Bizzye/usinaDoCorpo/releases/latest)
+[![CodeQL](https://img.shields.io/github/actions/workflow/status/Bizzye/usinaDoCorpo/codeql.yml?branch=main&label=CodeQL&logo=github&logoColor=white)](https://github.com/Bizzye/usinaDoCorpo/actions/workflows/codeql.yml)
 ![Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen)
 
 ![Angular](https://img.shields.io/badge/Angular-22-DD0031?logo=angular&logoColor=white)
