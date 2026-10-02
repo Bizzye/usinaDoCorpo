@@ -27,7 +27,7 @@
     "cap:sync": "ng build && cap sync android",
     "android:open": "cap open android",
     "android:run": "ng build && cap run android",
-    "android:apk": "ng build && cap sync android && cd android && gradlew assembleDebug",
+    "android:apk": "ng build && cap sync android && node -e \"require('node:child_process').execSync(process.platform === 'win32' ? 'gradlew.bat assembleDebug' : './gradlew assembleDebug', { cwd: 'android', stdio: 'inherit' })\"",
     "prepare": "husky",
     "deploy:web": "ng build && firebase deploy --only hosting"
   },

@@ -6,9 +6,9 @@ const config: CapacitorConfig = {
   webDir: 'www',
   backgroundColor: '#090909',
   android: {
-    // Never allow mixed (http) content or WebView debugging in release builds
+    // Never allow mixed (http) content. WebView debugging stays on Capacitor's default:
+    // enabled only for debug builds, disabled in release.
     allowMixedContent: false,
-    webContentsDebuggingEnabled: false,
   },
   plugins: {
     SystemBars: {
