@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Usina do Corpo</string>
+    <string name="title_activity_main">Usina do Corpo</string>
+    <string name="package_name">dev.bizzye.usinadocorpo</string>
+    <string name="custom_url_scheme">dev.bizzye.usinadocorpo</string>
+</resources>
