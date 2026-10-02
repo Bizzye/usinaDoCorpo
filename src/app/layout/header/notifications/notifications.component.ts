@@ -35,22 +35,22 @@ export class NotificationsComponent {
     stream: () => this.notificationService.getNotifications(),
   });
 
-  readonly isOpen = signal(false);
+  protected readonly isOpen = signal(false);
   private readonly seen = signal(false);
 
-  readonly hasUnread = computed(() => {
+  protected readonly hasUnread = computed(() => {
     if (this.seen() || !this.notifications.hasValue()) {
       return false;
     }
     return this.notifications.value().some((notification) => !notification.read);
   });
 
-  toggle(): void {
+  protected toggle(): void {
     this.isOpen.update((open) => !open);
     this.seen.set(true);
   }
 
-  close(): void {
+  protected close(): void {
     this.isOpen.set(false);
   }
 
