@@ -148,14 +148,13 @@ git tag v1.0.0 && git push origin v1.0.0
 <details>
 <summary><b>Secrets e variáveis necessários no GitHub</b></summary>
 
-| Nome                        | Tipo     | Uso                                          |
-| --------------------------- | -------- | -------------------------------------------- |
-| `FIREBASE_SERVICE_ACCOUNT`  | secret   | JSON da service account do Firebase (deploy) |
-| `FIREBASE_PROJECT_ID`       | variable | ID do projeto Firebase                       |
-| `ANDROID_KEYSTORE_BASE64`   | secret   | keystore de release em base64                |
-| `ANDROID_KEYSTORE_PASSWORD` | secret   | senha do keystore                            |
-| `ANDROID_KEY_ALIAS`         | secret   | alias da chave                               |
-| `ANDROID_KEY_PASSWORD`      | secret   | senha da chave                               |
+| Nome                        | Tipo   | Uso                                          |
+| --------------------------- | ------ | -------------------------------------------- |
+| `FIREBASE_SERVICE_ACCOUNT`  | secret | JSON da service account do Firebase (deploy) |
+| `ANDROID_KEYSTORE_BASE64`   | secret | keystore de release em base64                |
+| `ANDROID_KEYSTORE_PASSWORD` | secret | senha do keystore                            |
+| `ANDROID_KEY_ALIAS`         | secret | alias da chave                               |
+| `ANDROID_KEY_PASSWORD`      | secret | senha da chave                               |
 
 </details>
 
