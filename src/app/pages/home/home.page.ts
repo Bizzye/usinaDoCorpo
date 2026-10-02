@@ -28,7 +28,7 @@ export class HomePage {
   private readonly navigation = inject(NavigationService);
 
   protected readonly addIcon = addCircleOutline;
-  protected readonly newTrainingImage = 'assets/imgs/home/gym5.jpg';
+  protected readonly newTrainingImage = 'assets/imgs/home/gym5.webp';
   protected readonly skeletonSections = [1, 2, 3];
 
   protected readonly sections = rxResource({

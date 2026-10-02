@@ -3,7 +3,7 @@ import type { AppNotification, HomeSection, TrainingCard, User } from '@app/core
 export const CARD_FIXTURE: TrainingCard = {
   id: 'card-1',
   title: 'Levantamento de Peso',
-  image: 'assets/imgs/home/gym5.jpg',
+  image: 'assets/imgs/home/gym5.webp',
   inProgress: true,
   link: null,
 };
@@ -49,5 +49,5 @@ export const USER_FIXTURE: User = {
   name: 'Leonardo Santos',
   level: 'Roxo',
   levelColor: '#6a36e8',
-  avatarUrl: 'assets/imgs/profile/avatar.png',
+  avatarUrl: 'assets/imgs/profile/avatar.webp',
 };

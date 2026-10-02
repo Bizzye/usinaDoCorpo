@@ -5,7 +5,7 @@ import { IonSkeletonText } from '@ionic/angular';
 import { NavigationService } from '@app/core/services/navigation.service';
 import { SessionService } from '@app/core/services/session.service';
 
-export const DEFAULT_AVATAR = 'assets/imgs/profile/avatar.png';
+export const DEFAULT_AVATAR = 'assets/imgs/profile/avatar.webp';
 
 @Component({
   selector: 'app-profile',
