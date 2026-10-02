@@ -1,0 +1,59 @@
+name: Deploy web (Firebase Hosting)
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: firebase-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    name: ${{ github.event_name == 'pull_request' && 'Preview channel' || 'Production' }}
+    # Forks do not have access to the deploy secret
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      checks: write
+      pull-requests: write
+    env:
+      HAS_FIREBASE_SECRET: ${{ secrets.FIREBASE_SERVICE_ACCOUNT != '' }}
+    steps:
+      - name: Check Firebase configuration
+        if: env.HAS_FIREBASE_SECRET != 'true'
+        run: echo "::warning::FIREBASE_SERVICE_ACCOUNT secret not configured, skipping deploy"
+
+      - uses: actions/checkout@v7
+        if: env.HAS_FIREBASE_SECRET == 'true'
+
+      - uses: actions/setup-node@v7
+        if: env.HAS_FIREBASE_SECRET == 'true'
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        if: env.HAS_FIREBASE_SECRET == 'true'
+        run: npm ci
+
+      - name: Build
+        if: env.HAS_FIREBASE_SECRET == 'true'
+        run: npm run build
+
+      - name: Deploy to Firebase Hosting
+        if: env.HAS_FIREBASE_SECRET == 'true'
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          # Pull requests get a temporary preview URL; main goes live
+          channelId: ${{ github.event_name == 'pull_request' && '' || 'live' }}
+          expires: 7d

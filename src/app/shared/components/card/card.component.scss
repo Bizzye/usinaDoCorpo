@@ -1,0 +1,47 @@
+:host {
+  display: block;
+  height: 100%;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 1.5rem;
+  background-color: var(--app-color-gray-800);
+  text-align: left;
+  cursor: pointer;
+}
+
+.image {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  filter: grayscale(1);
+}
+
+.content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  background: linear-gradient(to top, rgb(0 0 0 / 55%), transparent);
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--app-color-white);
+}
+
+.in-progress {
+  color: var(--app-color-orange);
+  font-size: 0.75rem;
+  margin-bottom: 0.25rem;
+}

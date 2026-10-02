@@ -1,0 +1,31 @@
+<ion-header class="ion-no-border">
+  <!-- Not an ion-toolbar: its container clips overflow and would hide the notifications panel -->
+  <div class="toolbar">
+    <header class="header">
+      <div class="first-row">
+        <ion-menu-toggle>
+          <button type="button" class="menu-button" aria-label="Abrir menu">
+            <ion-icon [icon]="menuIcon" aria-hidden="true" />
+          </button>
+        </ion-menu-toggle>
+
+        <img
+          class="logo"
+          src="assets/imgs/shared/usinaDoCorpo.png"
+          alt="Usina do Corpo"
+          height="45"
+        />
+
+        <app-notifications />
+      </div>
+
+      <div class="second-row">
+        <app-profile />
+      </div>
+
+      <div class="third-row">
+        <app-nav />
+      </div>
+    </header>
+  </div>
+</ion-header>

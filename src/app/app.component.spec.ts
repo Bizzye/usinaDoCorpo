@@ -1,16 +1,28 @@
 import { TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
+import { provideRouter } from '@angular/router';
+import { provideIonicAngular } from '@ionic/angular';
+
+import { createNavigationSpy, provideNavigationSpy } from '@testing/navigation.mock';
+
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
-  it('should create the app', () => {
-    TestBed.overrideComponent(AppComponent, {
-      add: {
-        imports: [RouterTestingModule]
-      }
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      providers: [
+        provideRouter([]),
+        provideIonicAngular(),
+        provideNavigationSpy(createNavigationSpy()),
+      ],
     });
+  });
+
+  it('should render the side menu and the router outlet used as menu content', async () => {
     const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+    await fixture.whenStable();
+    const element = fixture.nativeElement as HTMLElement;
+
+    expect(element.querySelector('ion-app app-menu')).not.toBeNull();
+    expect(element.querySelector('ion-router-outlet')?.id).toBe('main-content');
   });
 });

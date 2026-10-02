@@ -1,13 +1,35 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>about</ion-title>
+<ion-header class="ion-no-border">
+  <ion-toolbar class="toolbar">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home" text="" />
+    </ion-buttons>
+    <ion-title>Sobre o projeto</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">about</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
+  <main class="about">
+    <img class="logo" src="assets/imgs/shared/usinaDoCorpo.png" alt="Usina do Corpo" height="45" />
+
+    <p class="description">
+      O <strong>Usina do Corpo</strong> é um protótipo de aplicativo de treinos com personal online,
+      programas e conteúdos. Foi desenvolvido como desafio técnico e posteriormente modernizado com
+      as versões mais recentes do ecossistema Angular/Ionic.
+    </p>
+
+    <h2 class="subtitle">Stack</h2>
+    <ul class="stack">
+      @for (item of stack; track item.name) {
+        <li>
+          <strong>{{ item.name }}</strong>
+          <span>{{ item.description }}</span>
+        </li>
+      }
+    </ul>
+
+    <a class="repository" [href]="repositoryUrl" target="_blank" rel="noopener noreferrer">
+      <ion-icon [icon]="githubIcon" aria-hidden="true" />
+      Ver código no GitHub
+    </a>
+  </main>
 </ion-content>

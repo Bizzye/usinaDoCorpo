@@ -1,98 +1,67 @@
-<app-header></app-header>
+<app-header />
 
-<ion-content [fullscreen]="true" id="main-content">
-  <div class="container">
-    <div class="content">
-      <h2 class="title"> 
-        PERSONAL ONLINE
-        <span class="plus">
-          <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" width="30" height="30" viewBox="0 0 512 512">
-            <path d="M448 256c0-106-86-192-192-192S64 150 64 256s86 192 192 192 192-86 192-192z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/>
-            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M256 176v160M336 256H176"/>
-          </svg>
-        </span>
-      </h2>
+<ion-content [fullscreen]="true">
+  <main class="container">
+    @if (sections.hasValue()) {
+      @for (section of sections.value(); track section.id) {
+        <section class="content" [attr.aria-labelledby]="'section-' + section.id">
+          <h2 class="title" [id]="'section-' + section.id">
+            {{ section.title }}
+            @switch (section.badge) {
+              @case ('plus') {
+                <ion-icon class="plus" [icon]="addIcon" aria-hidden="true" />
+              }
+              @case ('new') {
+                <span class="new">NOVO</span>
+              }
+            }
+          </h2>
 
-      <swiper-container
-        space-between="15"
-        slides-per-view="1.4"
-        observer="true"
-        observer-slide-children="true"
-        
-      >
+          <swiper-container
+            space-between="15"
+            slides-per-view="1.4"
+            observer="true"
+            observer-slide-children="true"
+          >
+            @if (section.showNewTraining) {
+              <swiper-slide>
+                <div class="slide">
+                  <button type="button" class="new-training" (click)="startNewTraining()">
+                    <img class="new-training-image" [src]="newTrainingImage" alt="" />
+                    <span class="new-training-overlay">
+                      <ion-icon class="new-training-icon" [icon]="addIcon" aria-hidden="true" />
+                      <span class="new-training-title">NOVO <br />TREINO</span>
+                    </span>
+                  </button>
+                </div>
+              </swiper-slide>
+            }
 
-        <swiper-slide>
-          <div class="slide newTraining">
-            <app-card [item]="newTraining"></app-card>
-
-            <div class="card_newTraining" (click)="_utils.openLink('/novo-treino')">
-              <span class="plus_newTraining">
-                <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
-                  <path d="M448 256c0-106-86-192-192-192S64 150 64 256s86 192 192 192 192-86 192-192z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/>
-                  <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M256 176v160M336 256H176"/>
-                </svg>
-              </span>
-
-              <h3 class="title_newTraining">NOVO <br> TREINO</h3>
-            </div>
+            @for (card of section.items; track card.id) {
+              <swiper-slide>
+                <div class="slide">
+                  <app-card [card]="card" (selected)="openCard($event)" />
+                </div>
+              </swiper-slide>
+            }
+          </swiper-container>
+        </section>
+      }
+    } @else if (sections.error()) {
+      <div class="content feedback" role="alert">
+        <p>Não foi possível carregar os conteúdos.</p>
+        <ion-button fill="outline" (click)="sections.reload()">Tentar novamente</ion-button>
+      </div>
+    } @else {
+      @for (item of skeletonSections; track item) {
+        <div class="content" aria-busy="true">
+          <ion-skeleton-text class="title-skeleton" [animated]="true" />
+          <div class="skeleton-row">
+            <ion-skeleton-text class="slide-skeleton" [animated]="true" />
+            <ion-skeleton-text class="slide-skeleton" [animated]="true" />
           </div>
-        </swiper-slide>
-
-        @for(item of cards; track $index) {
-          <swiper-slide>
-            <div class="slide">
-              <app-card [item]="item"></app-card>
-            </div>
-          </swiper-slide>
-        }
-      </swiper-container>
-    </div>
-
-    <div class="content">
-      <h2 class="title"> 
-        PROGRAMAS
-        <span class="new">
-          NOVO
-        </span>
-      </h2>
-
-      <swiper-container
-        space-between="15"
-        slides-per-view="1.4"
-        observer="true"
-        observer-slide-children="true"
-        
-      >
-        @for(item of cards; track $index) {
-          <swiper-slide>
-            <div class="slide">
-              <app-card [item]="item"></app-card>
-            </div>
-          </swiper-slide>
-        }
-      </swiper-container>
-    </div>
-
-    <div class="content">
-      <h2 class="title"> 
-        CONTEÚDOS
-      </h2>
-
-      <swiper-container
-        space-between="15"
-        slides-per-view="1.4"
-        observer="true"
-        observer-slide-children="true"
-        
-      >
-        @for(item of cards; track $index) {
-          <swiper-slide>
-            <div class="slide">
-              <app-card [item]="item"></app-card>
-            </div>
-          </swiper-slide>
-        }
-      </swiper-container>
-    </div>
-  </div>
+        </div>
+      }
+    }
+  </main>
 </ion-content>

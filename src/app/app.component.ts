@@ -1,16 +1,12 @@
-import { Component } from '@angular/core';
-import { IonApp, IonRouterOutlet } from '@ionic/angular/standalone';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { IonApp, IonRouterOutlet } from '@ionic/angular';
 
-import { register } from 'swiper/element/bundle';
-
-register();
+import { MenuComponent } from './layout/menu/menu.component';
 
 @Component({
   selector: 'app-root',
-  templateUrl: 'app.component.html',
-  standalone: true,
-  imports: [IonApp, IonRouterOutlet],
+  templateUrl: './app.component.html',
+  imports: [IonApp, IonRouterOutlet, MenuComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AppComponent {
-  constructor() {}
-}
+export class AppComponent {}

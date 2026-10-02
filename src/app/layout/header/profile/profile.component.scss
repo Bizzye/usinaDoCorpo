@@ -1,0 +1,51 @@
+.profile {
+  display: flex;
+  align-items: center;
+  width: 80%;
+  max-width: 20rem;
+  margin: 1rem auto;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+
+.avatar {
+  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  object-fit: cover;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex: 1;
+  margin-left: 0.75rem;
+}
+
+.name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--app-color-white);
+}
+
+.level {
+  color: var(--app-color-purple);
+}
+
+.feedback {
+  color: var(--app-color-white);
+  font-size: 0.875rem;
+}
+
+.text-skeleton {
+  width: 70%;
+  height: 1rem;
+  border-radius: 0.5rem;
+
+  &.short {
+    width: 40%;
+  }
+}

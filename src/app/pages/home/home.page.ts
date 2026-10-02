@@ -1,71 +1,45 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
-import { HeaderComponent } from 'src/app/components/header/header.component';
-import { CardComponent } from 'src/app/components/home/card/card.component';
-import { ICard } from 'src/app/interfaces/card/card-item.interface';
-import { UtilsService } from 'src/app/services/utils/utils.service';
+import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { rxResource } from '@angular/core/rxjs-interop';
+import { IonButton, IonContent, IonIcon, IonSkeletonText } from '@ionic/angular';
+import { addCircleOutline } from 'ionicons/icons';
+import { register as registerSwiperElements } from 'swiper/element';
+
+import type { TrainingCard } from '@app/core/models';
+import { ContentService } from '@app/core/services/content.service';
+import { NavigationService } from '@app/core/services/navigation.service';
+import { HeaderComponent } from '@app/layout/header/header.component';
+import { CardComponent } from '@app/shared/components/card/card.component';
+
+// Swiper is consumed as Web Components (<swiper-container>). Registering it here keeps
+// it inside the lazy-loaded home chunk instead of the initial bundle (idempotent call).
+registerSwiperElements();
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
-  styleUrls: ['./home.page.scss'],
-  standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule, HeaderComponent, CardComponent],
+  styleUrl: './home.page.scss',
+  imports: [IonContent, IonIcon, IonButton, IonSkeletonText, HeaderComponent, CardComponent],
+  // Required by the Swiper Web Components (<swiper-container> / <swiper-slide>)
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HomePage implements OnInit {
+export class HomePage {
+  private readonly content = inject(ContentService);
+  private readonly navigation = inject(NavigationService);
 
-  cards: ICard[] = [
-    {
-      image: 'assets/imgs/gym5.jpg',
-      backgroundImage: 'assets/imgs/home/gym5.jpg',
-      title: 'Levantamento de Peso',
-      hasTraining: true,
-      link: '#',
-      linkType: "Internal"
-    },
-    {
-      image: 'assets/imgs/gym4.jpg',
-      backgroundImage: 'assets/imgs/home/gym4.jpg',
-      title: 'Levantamento de Peso',
-      hasTraining: false,
-      link: '#',
-      linkType: "Internal"
-    },
-    {
-      image: 'assets/imgs/gym1.jpg',
-      backgroundImage: 'assets/imgs/home/gym1.jpg',
-      title: 'Levantamento de Peso',
-      hasTraining: false,
-      link: '#',
-      linkType: "Internal"
-    },
-    {
-      image: 'assets/imgs/gym2.jpg',
-      backgroundImage: 'assets/imgs/home/gym2.jpg',
-      title: 'Levantamento de Peso',
-      hasTraining: false,
-      link: '#',
-      linkType: "Internal"
-    }
-  ]
+  protected readonly addIcon = addCircleOutline;
+  protected readonly newTrainingImage = 'assets/imgs/home/gym5.webp';
+  protected readonly skeletonSections = [1, 2, 3];
 
-  newTraining: ICard = {
-    image: 'assets/imgs/gym5.jpg',
-    backgroundImage: 'assets/imgs/home/gym5.jpg',
-    title: '',
-    hasTraining: false,
-    link: '#',
-    linkType: "Internal"
+  protected readonly sections = rxResource({
+    stream: () => this.content.getHomeSections(),
+  });
+
+  protected openCard(card: TrainingCard): Promise<void> {
+    return this.navigation.open(card.link);
   }
 
-  constructor(
-    public _utils: UtilsService
-  ) { }
-
-  ngOnInit() {
+  protected startNewTraining(): Promise<void> {
+    return this.navigation.open(null);
   }
-
 }

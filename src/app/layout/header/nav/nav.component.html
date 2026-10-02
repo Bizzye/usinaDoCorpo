@@ -1,0 +1,10 @@
+<nav class="nav" aria-label="Atalhos">
+  @for (shortcut of shortcuts; track shortcut.label) {
+    <button type="button" class="shortcut" (click)="navigation.open(shortcut.link)">
+      <span class="icon-wrapper">
+        <ion-icon [icon]="shortcut.icon" aria-hidden="true" />
+      </span>
+      <span class="label">{{ shortcut.label }}</span>
+    </button>
+  }
+</nav>

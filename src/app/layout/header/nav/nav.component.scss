@@ -1,0 +1,35 @@
+.nav {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: var(--app-color-gray-650);
+  padding: 0 0.25rem;
+  border-radius: 1rem;
+}
+
+.shortcut {
+  display: flex;
+  align-items: center;
+  margin: 0.25rem;
+  background: transparent;
+  color: var(--app-color-orange);
+  cursor: pointer;
+}
+
+.icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 16px;
+  width: 16px;
+  border-radius: 100%;
+  border: 1px solid var(--app-color-orange);
+  font-size: 10px;
+}
+
+.label {
+  font-size: 0.7rem;
+  margin-left: 0.25rem;
+  margin-top: 1px;
+}

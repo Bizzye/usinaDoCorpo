@@ -53,6 +53,17 @@ yarn-error.log
 .history/*
 
 
+# Firebase
+/.firebase
+firebase-debug.log
+
+# Signing keys and service accounts (never commit)
+*-firebase-adminsdk-*.json
+service-account*.json
+*.jks
+*.keystore
+*.env
+
 # Miscellaneous
 /.angular
 /.angular/cache

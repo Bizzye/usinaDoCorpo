@@ -1,0 +1,7 @@
+www
+android
+coverage
+.angular
+node_modules
+package-lock.json
+*.svg

@@ -1,0 +1,32 @@
+<div class="container">
+  <button
+    type="button"
+    class="bell"
+    aria-label="Notificações"
+    aria-controls="notifications-panel"
+    [attr.aria-expanded]="isOpen()"
+    (click)="toggle()"
+  >
+    <ion-icon [icon]="bellIcon" aria-hidden="true" />
+  </button>
+
+  @if (hasUnread()) {
+    <span class="unread-dot" data-testid="unread-dot"></span>
+  }
+
+  @if (isOpen()) {
+    <div id="notifications-panel" class="panel" role="region" aria-label="Lista de notificações">
+      @if (notifications.hasValue()) {
+        @for (notification of notifications.value(); track notification.id; let first = $first) {
+          <app-notification-item [notification]="notification" [first]="first" />
+        } @empty {
+          <p class="feedback">Nenhuma notificação</p>
+        }
+      } @else if (notifications.error()) {
+        <p class="feedback">Não foi possível carregar as notificações</p>
+      } @else {
+        <p class="feedback">Carregando...</p>
+      }
+    </div>
+  }
+</div>
