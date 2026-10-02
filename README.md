@@ -107,7 +107,7 @@ src/
 - **Facade de navegação** — `NavigationService` centraliza rotas internas, links externos e o feedback de "em breve".
 - **Signals + `rxResource`** — estados de _loading_, erro e sucesso declarativos, sem `subscribe` manual.
 - **`OnPush` + zoneless** em todos os componentes (regra de lint obrigatória).
-- **Lazy loading** de páginas e do Swiper (fora do bundle inicial).
+- **Lazy loading** de páginas, imagens (WebP) e do Swiper (fora do bundle inicial).
 
 ## 🔐 Segurança
 
@@ -115,7 +115,7 @@ src/
 - Links externos validados (só `http/https`) e abertos com `noopener,noreferrer` — evita _reverse tabnabbing_ e `javascript:` URLs.
 - Cor do nível vinda da API **validada** (hex) antes de ir para o DOM.
 - Fontes **self-hosted** (`@fontsource/roboto`) — sem requisições a CDNs de terceiros.
-- Android: `allowBackup=false`, sem _mixed content_, WebView debugging desligado, build release com R8.
+- Android: `allowBackup=false`, sem _mixed content_, WebView debugging apenas em builds de debug, build release com R8.
 - Keystore de assinatura **fora do repositório**, injetado no CI via _secrets_.
 - `npm audit` no pipeline, CodeQL semanal e Dependabot agrupado.
 
